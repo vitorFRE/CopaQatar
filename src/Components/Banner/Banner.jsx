@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container } from './IntroStyles';
+import { Container } from './BannerStyles';
 import simbolo from '../../assets/simbolo.svg';
 import fifaeqatar from '../../assets/fifaeqatar.svg';
 
-const Intro = () => {
+const Banner = () => {
   return (
     <Container>
       <div>
@@ -14,4 +14,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default Banner;
