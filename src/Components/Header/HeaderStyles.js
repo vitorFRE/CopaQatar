@@ -19,14 +19,14 @@ export const Menu = styled.ul`
   gap: 56px;
 
   > li {
-    color: #3c3939;
+    color: ${({ theme }) => theme.colors.greyColor};
 
     a {
       font-weight: 500;
       font-size: 1.2rem;
 
       &:hover {
-        color: #8d1b3d;
+        color: ${({ theme }) => theme.colors.RedQatar};
       }
     }
   }

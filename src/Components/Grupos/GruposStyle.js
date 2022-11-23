@@ -12,12 +12,12 @@ export const GroupsContent = styled.div`
   justify-content: center;
 
   > ul {
-    background-color: #f4f4f4;
+    background-color: ${({ theme }) => theme.colors.bgColor};
     margin-bottom: 48px;
     width: 384px;
 
     > li {
-      color: #3c3939;
+      color: ${({ theme }) => theme.colors.greyColor};
 
       display: flex;
       gap: 32px;
@@ -29,7 +29,6 @@ export const GroupsContent = styled.div`
       padding-bottom: 43px;
 
       &:first-child {
-        color: #1f1e1e;
         font-weight: 600;
         justify-content: center;
         padding: 32px 0 45px 0;
@@ -52,7 +51,7 @@ export const GroupsNav = styled.div`
     cursor: pointer;
 
     > svg {
-      color: #8d1b3d;
+      color: ${({ theme }) => theme.colors.RedQatar};
     }
   }
 `;

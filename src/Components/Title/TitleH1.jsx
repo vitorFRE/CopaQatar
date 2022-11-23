@@ -7,7 +7,7 @@ const Container = styled.h1`
   font-weight: 600;
   font-size: 40px;
   line-height: 48px;
-  color: #1f1e1e;
+  color: ${({ theme }) => theme.colors.defaultTextColor};
   margin: 100px 0 48px 0;
   text-align: center;
 `;

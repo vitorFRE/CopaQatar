@@ -40,8 +40,7 @@ export const FooterMenu = styled.div`
       margin-bottom: 16px;
       font-size: 1.125rem;
       font-weight: 500;
-      color: #adb5bd;
-
+      color: ${(props) => props.theme.colors.greyColor2};
       &:hover {
         color: white;
       }
