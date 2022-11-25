@@ -9,15 +9,17 @@ export const Container = styled.section`
 export const GroupsContent = styled.div`
   display: flex;
   gap: 0px 32px;
-  justify-content: center;
+  overflow-x: auto;
 
   > ul {
     background-color: ${({ theme }) => theme.colors.bgColor};
     margin-bottom: 48px;
+    border-radius: 6px;
     width: 384px;
 
     > li {
       color: ${({ theme }) => theme.colors.greyColor};
+      width: 384px;
 
       display: flex;
       gap: 32px;
