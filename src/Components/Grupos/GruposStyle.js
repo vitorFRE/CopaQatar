@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Container = styled.section`
   max-width: 1200px;
@@ -6,11 +7,14 @@ export const Container = styled.section`
   margin: 0 auto;
 `;
 
-export const GroupsContent = styled.div`
+export const GroupsContent = styled(motion.div)`
+  overflow: hidden;
+  cursor: grab;
+`;
+
+export const Groups = styled(motion.div)`
   display: flex;
   gap: 0px 32px;
-  overflow-x: auto;
-
   > ul {
     background-color: ${({ theme }) => theme.colors.bgColor};
     margin-bottom: 48px;
@@ -30,6 +34,10 @@ export const GroupsContent = styled.div`
       padding-left: 32px;
       padding-bottom: 43px;
 
+      > img {
+        -webkit-user-drag: none;
+      }
+
       &:first-child {
         font-weight: 600;
         justify-content: center;
@@ -37,23 +45,18 @@ export const GroupsContent = styled.div`
       }
     }
   }
-`;
 
-export const GroupsNav = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-
-  > button {
-    background-color: #f4f4f4;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    cursor: pointer;
-
-    > svg {
-      color: ${({ theme }) => theme.colors.RedQatar};
+  @media (max-width: 600px) {
+    gap: 0px 10px;
+    > ul {
+      width: 320px;
+      > li {
+        font-size: 1.3rem;
+        > img {
+          width: 61px;
+          height: 40px;
+        }
+      }
     }
   }
 `;

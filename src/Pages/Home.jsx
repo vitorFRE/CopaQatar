@@ -13,7 +13,6 @@ const Home = () => {
         <Header />
         <Banner />
         <Grupos />
-        <NextMatch />
         <Footer />
       </div>
     </Theme>
