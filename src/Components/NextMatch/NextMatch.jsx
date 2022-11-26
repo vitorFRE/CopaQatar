@@ -1,58 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TitleH1 from '../Title/TitleH1';
 import { Container, Matchs } from './NextMatchStyle';
-import i from '../Images/Imagens';
 import Match from './Match';
 
 const NextMatch = () => {
+  const [dados, setDados] = useState();
+
+  async function FetchGroups() {
+    const response = await fetch('https://worldcupjson.net/matches/today');
+    const data = await response.json();
+    setDados(data);
+  }
+
+  useEffect(() => {
+    FetchGroups();
+  }, []);
+
+  function convertedDate(data) {
+    let utcDate = data;
+    let localDate = new Date(utcDate);
+    return localDate.toString().split(' ')[4];
+  }
+
   return (
     <Container>
-      <TitleH1 text="PRÓXIMOS JOGOS" />
+      <TitleH1 text="PRÓXIMOS JOGOS / HOJE" />
+
       <Matchs>
-        <Match
-          Team1={'Qatar'}
-          Team2={'Equador'}
-          DayHour={'20/11 13:00'}
-          //LogoT1={i.Qatar}
-          //LogoT2={i.Equador}
-        />
-
-        <Match
-          Team1={'Inglaterra'}
-          Team2={'Irã'}
-          DayHour={'21/11 10:00'}
-          //LogoT1={i.Inglaterra}
-          //LogoT2={i.Ira}
-        />
-
-        <Match
-          Team1={'Senegal'}
-          Team2={'Holanda'}
-          DayHour={'21/11 13:00'}
-          //LogoT1={i.Senegal}
-          //LogoT2={i.Holanda}
-        />
-
-        <Match
-          Team1={'EUA'}
-          Team2={'País de Gales'}
-          DayHour={'21/11 16:00'}
-          //LogoT1={i.EstadosUnidos}
-          //LogoT2={i.PaisDeGales}
-        />
-
-        <Match
-          Team1={'Argentina'}
-          Team2={'Arábia Saudita'}
-          DayHour={'22/11 07:00'}
-          //LogoT1={i.Argentina}
-          //LogoT2={i.ArabiaSaudita}
-        />
+        {dados
+          ? dados.map((today) => (
+              <Match
+                key={today.id}
+                Team1={today.home_team.name}
+                Team2={today.away_team.name}
+                LogoT1={`/src/assets/Teams/${today.home_team.country}.svg`}
+                LogoT2={`/src/assets/Teams/${today.away_team.country}.svg`}
+                DayHour={`${convertedDate(today.datetime)}`}
+              />
+            ))
+          : null}
       </Matchs>
-
-      <div className="button_div">
-        <button>VER TODOS OS JOGOS</button>
-      </div>
     </Container>
   );
 };
