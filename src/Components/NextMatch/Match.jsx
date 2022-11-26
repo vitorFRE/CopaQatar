@@ -41,7 +41,7 @@ const MatchContainer = styled.ul`
   }
 `;
 
-const Match = ({ Team1, Team2, LogoT1, LogoT2, DayHour }) => {
+const Match = ({ Team1, Team2, LogoT1, LogoT2, DayHour, ...props }) => {
   return (
     <MatchContainer>
       <li>
