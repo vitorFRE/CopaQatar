@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import LogoFifa from '../../assets/Images/LogoFifa';
 import { Container, Logo, Menu } from './HeaderStyles';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import LogoHeader from '../../assets/Images/LogoHeader';
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = React.useState(false);
@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <Container>
       <Logo>
-        <LogoFifa />
+        <LogoHeader />
       </Logo>
 
       <Menu>
@@ -32,10 +32,10 @@ const Header = () => {
             <a href="">Inicio</a>
           </li>
           <li>
-            <a href="">Grupos</a>
+            <a href="#grupos">Grupos</a>
           </li>
           <li>
-            <a href="">Partidas</a>
+            <a href="#proximojogo">Partidas</a>
           </li>
           <li>
             <a href="">Onde Assistir</a>

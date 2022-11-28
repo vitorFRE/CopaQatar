@@ -13,7 +13,7 @@ const Container = styled.h1`
 `;
 
 const TitleH1 = ({ text, ...props }) => {
-  return <Container>{text}</Container>;
+  return <Container {...props}>{text}</Container>;
 };
 
 export default TitleH1;

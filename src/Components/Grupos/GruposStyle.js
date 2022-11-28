@@ -20,6 +20,7 @@ export const Groups = styled(motion.div)`
     margin-bottom: 48px;
     border-radius: 6px;
     width: 384px;
+    box-shadow: 3px 3px 3px rgba(60, 57, 57, 0.2);
 
     > li {
       color: ${({ theme }) => theme.colors.greyColor};

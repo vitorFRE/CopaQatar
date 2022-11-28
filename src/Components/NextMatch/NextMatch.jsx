@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import TitleH1 from '../Title/TitleH1';
 import { Container, Matchs } from './NextMatchStyle';
 import Match from './Match';
+import { GetURL } from '../Helper/GetURL';
+import { Translate } from '../Helper/Translate';
 
 const NextMatch = () => {
   const [dados, setDados] = useState();
@@ -24,17 +26,17 @@ const NextMatch = () => {
 
   return (
     <Container>
-      <TitleH1 text="PRÓXIMOS JOGOS / HOJE" />
+      <TitleH1 id="proximojogo" text="PRÓXIMOS JOGOS / HOJE" />
 
       <Matchs>
         {dados
           ? dados.map((today) => (
               <Match
                 key={today.id}
-                Team1={today.home_team.name}
-                Team2={today.away_team.name}
-                LogoT1={`/src/assets/Teams/${today.home_team.country}.svg`}
-                LogoT2={`/src/assets/Teams/${today.away_team.country}.svg`}
+                Team1={Translate(today.home_team.name)}
+                Team2={Translate(today.away_team.name)}
+                LogoT1={GetURL(today.home_team.country)}
+                LogoT2={GetURL(today.away_team.country)}
                 DayHour={`${convertedDate(today.datetime)}`}
               />
             ))

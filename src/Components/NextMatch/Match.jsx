@@ -6,6 +6,7 @@ const MatchContainer = styled.ul`
   max-width: 100%;
 
   background-color: ${({ theme }) => theme.colors.bgColor};
+  box-shadow: 3px 3px 3px rgba(60, 57, 57, 0.2);
 
   align-items: center;
   justify-content: space-between;
@@ -38,6 +39,22 @@ const MatchContainer = styled.ul`
     display: flex;
     gap: 50px;
     align-items: center;
+  }
+
+  @media (max-width: 700px) {
+    li:first-child,
+    li:last-child {
+      font-size: 1.225rem;
+      text-align: center;
+    }
+
+    > li {
+      display: flex;
+      flex-direction: column;
+      > img {
+        width: 50px;
+      }
+    }
   }
 `;
 
