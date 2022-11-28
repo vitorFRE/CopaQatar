@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import LogoHeader from '../../assets/Images/LogoHeader';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = React.useState(false);
@@ -11,7 +12,9 @@ const Header = () => {
   return (
     <Container>
       <Logo>
-        <LogoHeader />
+        <Link to="/">
+          <LogoHeader />
+        </Link>
       </Logo>
 
       <Menu>
@@ -29,16 +32,16 @@ const Header = () => {
           className={`${mobileMenu && 'menuActive'}`}
         >
           <li>
-            <a href="">Inicio</a>
+            <Link to="/">Inicio</Link>
           </li>
           <li>
-            <a href="#grupos">Grupos</a>
+            <Link to="/">Grupos</Link>
           </li>
           <li>
-            <a href="#proximojogo">Partidas</a>
+            <Link to="/">Partidas</Link>
           </li>
           <li>
-            <a href="">Onde Assistir</a>
+            <Link to="/informacoes">Informações</Link>
           </li>
         </motion.ul>
       </Menu>

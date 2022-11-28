@@ -26,7 +26,7 @@ const NextMatch = () => {
 
   return (
     <Container>
-      <TitleH1 id="proximojogo" text="PRÓXIMOS JOGOS / HOJE" />
+      <TitleH1 text="PRÓXIMOS JOGOS / HOJE" />
 
       <Matchs>
         {dados

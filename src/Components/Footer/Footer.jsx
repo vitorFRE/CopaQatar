@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LogoFifa from '../../assets/Images/LogoFifa';
 import LogoQatar from '../../assets/Images/LogoQatar';
 import { Container, FooterLogos, FooterMenu } from './FooterStyles';
@@ -11,40 +12,39 @@ const Footer = () => {
           <ul>
             <li>Redes Sociais</li>
             <li>
-              <a href="/">Facebook</a>
+              <a href="https://github.com/vitorFRE" target="_blank">
+                GitHub
+              </a>
             </li>
             <li>
-              <a href="/">Instagram</a>
+              <Link to="/">Twitter</Link>
             </li>
             <li>
-              <a href="/">Twitter</a>
-            </li>
-            <li>
-              <a href="/">Youtube</a>
+              <Link to="/">Youtube</Link>
             </li>
           </ul>
           <ul>
             <li>Legais</li>
             <li>
-              <a href="/">Sobre</a>
+              <Link to="/">Sobre</Link>
             </li>
             <li>
-              <a href="/">Licença</a>
+              <Link to="/">Lincença</Link>
             </li>
             <li>
-              <a href="/">Contato</a>
+              <Link to="/">Contato</Link>
             </li>
             <li>
-              <a href="/">Politíca de privacidade</a>
+              <Link to="/">Politíca de privacidade</Link>
             </li>
           </ul>
           <ul>
             <li>Fifa</li>
             <li>
-              <a href="/">Serviços</a>
+              <Link to="/">Serviços</Link>
             </li>
             <li>
-              <a href="/">Patrocinadores</a>
+              <Link to="/">Patrocinadores</Link>
             </li>
           </ul>
         </FooterMenu>

@@ -26,7 +26,7 @@ const Grupos = () => {
 
   return (
     <Container>
-      <TitleH1 id="grupos" text="GRUPOS" />
+      <TitleH1 text="GRUPOS" />
 
       {dados ? (
         <GroupsContent ref={carousel} whileTap={{ cursor: 'grabbing' }}>
