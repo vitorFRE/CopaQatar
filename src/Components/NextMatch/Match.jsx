@@ -58,13 +58,13 @@ const MatchContainer = styled.ul`
   }
 `;
 
-const Match = ({ Team1, Team2, LogoT1, LogoT2, DayHour, ...props }) => {
+const Match = ({ Team1, Team2, LogoT1, LogoT2, Info, ...props }) => {
   return (
     <MatchContainer>
       <li>
         <img src={LogoT1} alt="Team Logo" /> {Team1}
       </li>
-      <li>{DayHour}</li>
+      <li>{Info}</li>
       <li>
         {Team2} <img src={LogoT2} alt="Team Logo" />
       </li>

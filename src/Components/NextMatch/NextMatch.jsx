@@ -37,7 +37,7 @@ const NextMatch = () => {
                 Team2={Translate(today.away_team.name)}
                 LogoT1={GetURL(today.home_team.country)}
                 LogoT2={GetURL(today.away_team.country)}
-                DayHour={`${convertedDate(today.datetime)}`}
+                Info={`${convertedDate(today.datetime)}`}
               />
             ))
           : null}
