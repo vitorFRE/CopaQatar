@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.footer`
   background-color: #8d1b3d;
+  margin-top: 50px;
 
   > div {
     max-width: 1200px;

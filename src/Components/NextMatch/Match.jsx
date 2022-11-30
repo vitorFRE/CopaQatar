@@ -13,23 +13,36 @@ const MatchContainer = styled.ul`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
 
-  li {
-    color: ${({ theme }) => theme.colors.RedQatar};
-    font-weight: 600;
-    font-size: 1.125rem;
-    line-height: 22px;
+  > ul {
+    text-align: center;
+    padding: 10px;
+    > .in_2 {
+      color: ${({ theme }) => theme.colors.RedQatar};
+      font-weight: 600;
+      font-size: 1.125rem;
+      line-height: 22px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    .in_1,
+    .in_3 {
+      color: ${({ theme }) => theme.colors.defaultTextColor};
+      font-weight: 600;
+      font-size: 1.625rem;
+      line-height: 22px;
+    }
   }
 
-  li:first-child {
+  > .li_1 {
     justify-content: flex-start;
   }
 
-  li:last-child {
+  > .li_2 {
     justify-content: flex-end;
   }
 
-  li:first-child,
-  li:last-child {
+  .li_1:first-child,
+  .li_2:last-child {
     color: ${({ theme }) => theme.colors.defaultTextColor};
     font-weight: 500;
     font-size: 1.625rem;
@@ -42,8 +55,8 @@ const MatchContainer = styled.ul`
   }
 
   @media (max-width: 700px) {
-    li:first-child,
-    li:last-child {
+    .li_1:first-child,
+    .li_2:last-child {
       font-size: 1.225rem;
       text-align: center;
     }
@@ -58,14 +71,29 @@ const MatchContainer = styled.ul`
   }
 `;
 
-const Match = ({ Team1, Team2, LogoT1, LogoT2, Info, ...props }) => {
+const Match = ({
+  Team1,
+  Team2,
+  LogoT1,
+  LogoT2,
+  Info,
+  Info2,
+  Info3,
+  Info4,
+  ...props
+}) => {
   return (
     <MatchContainer>
-      <li>
+      <li className="li_1">
         <img src={LogoT1} alt="Team Logo" /> {Team1}
       </li>
-      <li>{Info}</li>
-      <li>
+      <ul>
+        <li className="in_1">{Info}</li>
+        <li className="in_2">{Info2}</li>
+        <li className="in_3">{Info3}</li>
+        <li className="in_2">{Info4}</li>
+      </ul>
+      <li className="li_2">
         {Team2} <img src={LogoT2} alt="Team Logo" />
       </li>
     </MatchContainer>

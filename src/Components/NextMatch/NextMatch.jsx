@@ -4,6 +4,8 @@ import { Container, Matchs } from './NextMatchStyle';
 import Match from './Match';
 import { GetURL } from '../Helper/GetURL';
 import { Translate } from '../Helper/Translate';
+import { Link } from 'react-router-dom';
+import { ConvertedDateHour } from '../Helper/ConvertedDate';
 
 const NextMatch = () => {
   const [dados, setDados] = useState();
@@ -18,12 +20,6 @@ const NextMatch = () => {
     FetchGroups();
   }, []);
 
-  function convertedDate(data) {
-    let utcDate = data;
-    let localDate = new Date(utcDate);
-    return localDate.toString().split(' ')[4];
-  }
-
   return (
     <Container>
       <TitleH1 text="PRÓXIMOS JOGOS / HOJE" />
@@ -31,14 +27,15 @@ const NextMatch = () => {
       <Matchs>
         {dados
           ? dados.map((today) => (
-              <Match
-                key={today.id}
-                Team1={Translate(today.home_team.name)}
-                Team2={Translate(today.away_team.name)}
-                LogoT1={GetURL(today.home_team.country)}
-                LogoT2={GetURL(today.away_team.country)}
-                Info={`${convertedDate(today.datetime)}`}
-              />
+              <Link key={today.id} to={`/partida/${today.id}`}>
+                <Match
+                  Team1={Translate(today.home_team.name)}
+                  Team2={Translate(today.away_team.name)}
+                  LogoT1={GetURL(today.home_team.country)}
+                  LogoT2={GetURL(today.away_team.country)}
+                  Info2={`${ConvertedDateHour(today.datetime)}`}
+                />
+              </Link>
             ))
           : null}
       </Matchs>
