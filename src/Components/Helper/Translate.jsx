@@ -86,6 +86,24 @@ export const Translate = (name) => {
     case 'Ghana':
       return 'Gana';
       break;
+    case 'completed':
+      return 'Fim de jogo';
+      break;
+    case 'future_scheduled':
+      return 'Partida Futura';
+      break;
+    case 'Dec':
+      return 'Dez';
+      break;
+    case 'substitution':
+      return 'Substituição';
+      break;
+    case 'booking':
+      return 'Banco';
+      break;
+    case 'goal':
+      return 'Gol';
+      break;
     default:
       return name;
   }
