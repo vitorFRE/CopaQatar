@@ -49,10 +49,13 @@ const Footer = () => {
               <Link to="/">Inicio</Link>
             </li>
             <li>
-              <Link to="/informacoes">Informações</Link>
+              <Link to="/Grupos">Grupos</Link>
             </li>
             <li>
               <Link to="/Partidas">Partidas</Link>
+            </li>
+            <li>
+              <Link to="/informacoes">Informações</Link>
             </li>
           </ul>
         </FooterMenu>

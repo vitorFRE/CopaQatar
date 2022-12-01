@@ -17,9 +17,7 @@ export const Container = styled.footer`
 
   @media (max-width: 450px) {
     > div {
-      justify-content: center;
       align-items: center;
-      text-align: center;
     }
   }
 `;
@@ -78,6 +76,15 @@ export const FooterLogos = styled.div`
   align-items: center;
   gap: 15px;
   margin-bottom: 25px;
+
+  @media (max-width: 450px) {
+    .logofifa {
+      width: 50px;
+    }
+    .logoqatar {
+      width: 170px;
+    }
+  }
 
   .logofifa {
     fill: white;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import GrupoPage from './Pages/GrupoPage';
 
 import Home from './Pages/Home';
 import Informacoes from './Pages/Informacoes';
@@ -14,6 +15,7 @@ const RoutesPages = () => {
         <Route path="/Informacoes" element={<Informacoes />} />
         <Route path="/Partidas" element={<Partidas />} />
         <Route path="/Partida/:id" element={<Partida />} />
+        <Route path="/Grupos" element={<GrupoPage />} />
       </Routes>
     </BrowserRouter>
   );

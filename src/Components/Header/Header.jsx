@@ -35,7 +35,7 @@ const Header = () => {
             <Link to="/">Inicio</Link>
           </li>
           <li>
-            <Link to="/">Grupos</Link>
+            <Link to="/Grupos">Grupos</Link>
           </li>
           <li>
             <Link to="/Partidas">Partidas</Link>
