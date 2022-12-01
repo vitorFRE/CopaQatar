@@ -104,6 +104,24 @@ export const Translate = (name) => {
     case 'goal':
       return 'Gol';
       break;
+    case 'To Be Determined':
+      return 'Indefinido';
+      break;
+    case 'future_unscheduled':
+      return 'Partida Futura';
+      break;
+    case 'First stage':
+      return 'Primeira Fase';
+      break;
+    case 'Play-off for third place':
+      return 'Disputa pelo 3 lugar';
+      break;
+    case 'Quarter-final':
+      return 'Quartas de final';
+      break;
+    case 'Round of 16':
+      return 'Oitavas ';
+      break;
     default:
       return name;
   }

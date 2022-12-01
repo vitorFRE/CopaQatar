@@ -80,6 +80,7 @@ const Match = ({
   Info2,
   Info3,
   Info4,
+  Info5,
   ...props
 }) => {
   return (
@@ -92,6 +93,7 @@ const Match = ({
         <li className="in_2">{Info2}</li>
         <li className="in_3">{Info3}</li>
         <li className="in_2">{Info4}</li>
+        <li className="in_2">{Info5}</li>
       </ul>
       <li className="li_2">
         {Team2} <img src={LogoT2} alt="Team Logo" />

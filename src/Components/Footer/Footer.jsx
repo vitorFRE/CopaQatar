@@ -17,34 +17,42 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link to="/">Twitter</Link>
-            </li>
-            <li>
-              <Link to="/">Youtube</Link>
-            </li>
-          </ul>
-          <ul>
-            <li>Legais</li>
-            <li>
-              <Link to="/">Sobre</Link>
-            </li>
-            <li>
-              <Link to="/">Lincença</Link>
-            </li>
-            <li>
-              <Link to="/">Contato</Link>
-            </li>
-            <li>
-              <Link to="/">Politíca de privacidade</Link>
+              <a
+                href="https://www.linkedin.com/in/vitor-santos-5744861b2/"
+                target="_blank"
+              >
+                Linkedin
+              </a>
             </li>
           </ul>
           <ul>
-            <li>Fifa</li>
+            <li>Infos</li>
+
             <li>
-              <Link to="/">Serviços</Link>
+              <a href="https://github.com/vitorFRE/CopaQatar" target="_blank">
+                Repositório
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://github.com/estiens/world_cup_json"
+                target="_blank"
+              >
+                API
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li>Pages</li>
+            <li>
+              <Link to="/">Inicio</Link>
             </li>
             <li>
-              <Link to="/">Patrocinadores</Link>
+              <Link to="/informacoes">Informações</Link>
+            </li>
+            <li>
+              <Link to="/Partidas">Partidas</Link>
             </li>
           </ul>
         </FooterMenu>

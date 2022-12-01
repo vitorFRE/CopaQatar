@@ -14,6 +14,14 @@ export const Container = styled.footer`
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+  @media (max-width: 450px) {
+    > div {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
 `;
 
 export const FooterMenu = styled.div`
@@ -51,6 +59,16 @@ export const FooterMenu = styled.div`
   @media (max-width: 720px) {
     flex-wrap: wrap;
     gap: 20px;
+  }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    gap: 5px;
+
+    > ul {
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
   }
 `;
 

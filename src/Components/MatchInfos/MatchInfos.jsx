@@ -9,7 +9,6 @@ import {
   ConvertedDateDay,
   ConvertedDateHour,
   ConvertedDateMonth,
-  ConvertedDateTest,
 } from '../Helper/ConvertedDate';
 
 const MatchInfos = () => {

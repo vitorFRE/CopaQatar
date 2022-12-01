@@ -3,6 +3,7 @@ import { Container, Current } from './CurrentMatchStyle';
 import circulo from '../../assets/circulo.svg';
 import Match from '../NextMatch/Match';
 import { GetURL } from '../Helper/GetURL';
+import { Translate } from '../Helper/Translate';
 
 const CurrentMatch = () => {
   const [dados, setDados] = useState();
@@ -28,8 +29,8 @@ const CurrentMatch = () => {
           dados.map((curr) => (
             <Match
               key={curr.id}
-              Team1={curr.home_team.name}
-              Team2={curr.away_team.name}
+              Team1={Translate(curr.home_team.name)}
+              Team2={Translate(curr.away_team.name)}
               LogoT1={GetURL(curr.home_team.country)}
               LogoT2={GetURL(curr.away_team.country)}
               Info={`${curr.home_team.goals} - ${curr.away_team.goals}`}
