@@ -4,16 +4,21 @@ import Footer from '../Components/Footer/Footer';
 import Grupos from '../Components/Grupos/Grupos';
 import Header from '../Components/Header/Header';
 import NextMatch from '../Components/NextMatch/NextMatch';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Header />
       <Banner />
       <Grupos />
       <NextMatch />
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
