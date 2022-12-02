@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import TitleH1 from '../Title/TitleH1';
 import { GetURL } from '../Helper/GetURL';
 import { Translate } from '../Helper/Translate';
+import { Link } from 'react-router-dom';
 
 const Grupos = () => {
   const [dados, setDados] = useState();
@@ -63,6 +64,10 @@ const Grupos = () => {
           </Groups>
         </GroupsContent>
       ) : null}
+
+      <div className="button_div">
+        <Link to={'/Grupos'}>VER PONTOS DOS GRUPO</Link>
+      </div>
     </Container>
   );
 };

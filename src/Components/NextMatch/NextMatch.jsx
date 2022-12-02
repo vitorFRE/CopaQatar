@@ -39,6 +39,10 @@ const NextMatch = () => {
             ))
           : null}
       </Matchs>
+
+      <div className="button_div">
+        <Link to={'/Partidas'}>VER TODOS OS JOGOS</Link>
+      </div>
     </Container>
   );
 };
