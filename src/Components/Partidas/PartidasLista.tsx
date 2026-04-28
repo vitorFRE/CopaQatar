@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loadMatches } from '../../data/edition2022';
 import type { WorldCupMatch } from '../../types/worldcup';
 import {
   ConvertedDateDay,
@@ -16,8 +17,7 @@ const PartidasLista = () => {
   const [dados, setDados] = useState<WorldCupMatch[] | undefined>();
 
   async function FetchGroups() {
-    const response = await fetch(`https://worldcupjson.net/matches/`);
-    const data: WorldCupMatch[] = await response.json();
+    const data = await loadMatches();
     setDados(data);
   }
 

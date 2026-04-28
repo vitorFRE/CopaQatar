@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loadMatchesTodayLike } from '../../data/edition2022';
 import type { WorldCupMatch } from '../../types/worldcup';
 import { ConvertedDateHour } from '../Helper/ConvertedDate';
 import { GetURL } from '../Helper/GetURL';
@@ -12,8 +13,7 @@ const NextMatch = () => {
   const [dados, setDados] = useState<WorldCupMatch[] | undefined>();
 
   async function FetchGroups() {
-    const response = await fetch('https://worldcupjson.net/matches/today');
-    const data: WorldCupMatch[] = await response.json();
+    const data = await loadMatchesTodayLike();
     setDados(data);
   }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { loadMatchById } from '../../data/edition2022';
 import type { WorldCupMatch } from '../../types/worldcup';
 import {
   ConvertedDateDay,
@@ -19,8 +20,7 @@ const MatchInfos = () => {
 
   async function FetchGroups() {
     if (!id) return;
-    const response = await fetch(`https://worldcupjson.net/matches/${id}`);
-    const data: WorldCupMatch = await response.json();
+    const data = await loadMatchById(id);
     setDados(data);
   }
 

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loadTeams } from '../../data/edition2022';
 import type { TeamsResponse } from '../../types/worldcup';
 import { GetURL } from '../Helper/GetURL';
 import { Translate } from '../Helper/Translate';
@@ -12,8 +13,7 @@ const Grupos = () => {
   const [width, setWidth] = useState(0);
 
   async function FetchGroups() {
-    const response = await fetch('https://worldcupjson.net/teams');
-    const data: TeamsResponse = await response.json();
+    const data = await loadTeams();
     setDados(data);
   }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import circulo from '../../assets/circulo.svg';
+import { loadMatchesCurrentLike } from '../../data/edition2022';
 import type { WorldCupMatch } from '../../types/worldcup';
 import { GetURL } from '../Helper/GetURL';
 import { Translate } from '../Helper/Translate';
@@ -10,8 +11,7 @@ const CurrentMatch = () => {
   const [dados, setDados] = useState<WorldCupMatch[] | undefined>();
 
   async function FetchCurrent() {
-    const response = await fetch(`https://worldcupjson.net/matches/current`);
-    const data: WorldCupMatch[] = await response.json();
+    const data = await loadMatchesCurrentLike();
     setDados(data);
   }
 
