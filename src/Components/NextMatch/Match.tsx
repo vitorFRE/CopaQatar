@@ -17,7 +17,7 @@ const MatchContainer = styled.ul`
     text-align: center;
     padding: 10px;
     > .in_2 {
-      color: ${({ theme }) => theme.colors.RedQatar};
+      color: ${({ theme }) => theme.colors.primary};
       font-weight: 600;
       font-size: 1.125rem;
       line-height: 22px;

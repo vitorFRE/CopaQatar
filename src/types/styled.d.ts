@@ -4,11 +4,12 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       defaultTextColor: string;
-      RedQatar: string;
+      primary: string;
       bgColor: string;
-      bgRed: string;
+      primarySoft: string;
       greyColor: string;
       greyColor2: string;
+      footerBackground: string;
     };
   }
 }

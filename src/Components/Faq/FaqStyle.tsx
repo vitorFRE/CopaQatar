@@ -22,7 +22,7 @@ export const Accordion = styled.div`
     transition: all 0.6s cubic-bezier(1, 0, 1, 0);
   }
   .faq_accordion_pergunta_ativo {
-    color: ${({ theme }) => theme.colors.RedQatar};
+    color: ${({ theme }) => theme.colors.primary};
   }
   > div {
     border-radius: 6px;

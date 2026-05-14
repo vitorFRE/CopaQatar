@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import circulo from '../../assets/circulo.svg';
-import { loadMatchesCurrentLike } from '../../data/edition2022';
+import { useEdition } from '../../edition/EditionContext';
+import { loadMatchesCurrentLike } from '../../data/editions';
 import type { WorldCupMatch } from '../../types/worldcup';
 import { GetURL } from '../Helper/GetURL';
 import { Translate } from '../Helper/Translate';
@@ -8,16 +9,17 @@ import Match from '../NextMatch/Match';
 import { Container, Current } from './CurrentMatchStyle';
 
 const CurrentMatch = () => {
+  const { slug } = useEdition();
   const [dados, setDados] = useState<WorldCupMatch[] | undefined>();
 
   async function FetchCurrent() {
-    const data = await loadMatchesCurrentLike();
+    const data = await loadMatchesCurrentLike(slug);
     setDados(data);
   }
 
   useEffect(() => {
     void FetchCurrent();
-  }, []);
+  }, [slug]);
 
   return (
     <Container>

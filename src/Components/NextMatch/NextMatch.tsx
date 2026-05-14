@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loadMatchesTodayLike } from '../../data/edition2022';
+import { useEdition } from '../../edition/EditionContext';
+import { buildEditionPath } from '../../edition/editionConfig';
+import { loadMatchesTodayLike } from '../../data/editions';
 import type { WorldCupMatch } from '../../types/worldcup';
 import { ConvertedDateHour } from '../Helper/ConvertedDate';
 import { GetURL } from '../Helper/GetURL';
@@ -10,16 +12,17 @@ import Match from './Match';
 import { Container, Matchs } from './NextMatchStyle';
 
 const NextMatch = () => {
+  const { slug } = useEdition();
   const [dados, setDados] = useState<WorldCupMatch[] | undefined>();
 
   async function FetchGroups() {
-    const data = await loadMatchesTodayLike();
+    const data = await loadMatchesTodayLike(slug);
     setDados(data);
   }
 
   useEffect(() => {
     void FetchGroups();
-  }, []);
+  }, [slug]);
 
   return (
     <Container>
@@ -28,7 +31,7 @@ const NextMatch = () => {
       <Matchs>
         {dados
           ? dados.map((today) => (
-              <Link key={today.id} to={`/partida/${today.id}`}>
+              <Link key={today.id} to={buildEditionPath(slug, `partida/${today.id}`)}>
                 <Match
                   Team1={Translate(today.home_team.name)}
                   Team2={Translate(today.away_team.name)}
@@ -42,7 +45,7 @@ const NextMatch = () => {
       </Matchs>
 
       <div className="button_div">
-        <Link to={'/Partidas'}>VER TODOS OS JOGOS</Link>
+        <Link to={buildEditionPath(slug, 'partidas')}>VER TODOS OS JOGOS</Link>
       </div>
     </Container>
   );

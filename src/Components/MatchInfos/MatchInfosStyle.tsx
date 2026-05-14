@@ -27,7 +27,7 @@ export const Eventos = styled.div`
     gap: 10px;
 
     > li {
-      color: ${({ theme }) => theme.colors.RedQatar};
+      color: ${({ theme }) => theme.colors.primary};
       font-weight: 600;
       font-size: 1.125rem;
       line-height: 22px;
@@ -40,7 +40,7 @@ export const Eventos = styled.div`
     justify-content: space-between;
 
     .event_name {
-      color: ${({ theme }) => theme.colors.RedQatar};
+      color: ${({ theme }) => theme.colors.primary};
       font-weight: 600;
       font-size: 1.125rem;
       line-height: 22px;

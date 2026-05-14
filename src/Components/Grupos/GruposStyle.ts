@@ -10,8 +10,8 @@ export const Container = styled.section`
     display: flex;
     justify-content: center;
     > a {
-      color: ${({ theme }) => theme.colors.RedQatar};
-      background-color: ${({ theme }) => theme.colors.bgRed};
+      color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.colors.primarySoft};
       border: none;
       cursor: pointer;
       padding: 16px 48px;

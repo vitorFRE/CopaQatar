@@ -1,35 +1,11 @@
 import { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import NextMatch from '../NextMatch/NextMatch';
+import { useEdition } from '../../edition/EditionContext';
 import TitleH1 from '../Title/TitleH1';
 import { Accordion, Container } from './FaqStyle';
 
-type FaqItem = {
-  id: number;
-  Pergunta: string;
-  Resposta: string;
-};
-
-const dados: FaqItem[] = [
-  {
-    id: 1,
-    Pergunta: 'Onde Assistir?',
-    Resposta:
-      'Na tv aberta, os jogos serão transmitidos pela Globo e também será transmito no seu streaming GloboPlay de graça e no GloboPlay+ pago, Nos canais fehados serão transmitidos pelos canais SporTV, SporTV 2 e SporTV 3, e pela primera vez um streamer no Brasil transmitirá pelo menos um jogo com imagens no Youtube CazeTV e twitch Casimito ',
-  },
-  {
-    id: 2,
-    Pergunta: 'Quando será a final da copa?',
-    Resposta: 'Dia 18 de dezembro, 2022.',
-  },
-  {
-    id: 3,
-    Pergunta: 'Quantos países participam da copa?',
-    Resposta: '32 países participantes.',
-  },
-];
-
 const Faq = () => {
+  const { faq } = useEdition();
   const [ativo, setAtivo] = useState<number | null>(0);
 
   const toggle = (i: number) => {
@@ -45,7 +21,7 @@ const Faq = () => {
     <Container>
       <TitleH1 text="Informações" />
       <Accordion>
-        {dados.map((item, i) => (
+        {faq.map((item, i) => (
           <div key={item.id} onClick={() => toggle(i)}>
             <div>
               <h2
@@ -55,7 +31,7 @@ const Faq = () => {
                     : 'faq_accordion_pergunta'
                 }`}
               >
-                {item.Pergunta}
+                {item.question}
               </h2>
               <span>
                 {ativo === i ? <AiOutlineMinus /> : <AiOutlinePlus />}
@@ -66,12 +42,11 @@ const Faq = () => {
                 ativo === i ? 'faq_accordion_ativo' : 'faq_accordion_resposta'
               }`}
             >
-              {item.Resposta}
+              {item.answer}
             </div>
           </div>
         ))}
       </Accordion>
-      <NextMatch />
     </Container>
   );
 };

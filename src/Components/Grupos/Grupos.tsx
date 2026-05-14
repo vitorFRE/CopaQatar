@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loadTeams } from '../../data/edition2022';
+import { useEdition } from '../../edition/EditionContext';
+import { buildEditionPath } from '../../edition/editionConfig';
+import { loadTeams } from '../../data/editions';
 import type { TeamsResponse } from '../../types/worldcup';
 import { GetURL } from '../Helper/GetURL';
 import { Translate } from '../Helper/Translate';
@@ -8,18 +10,19 @@ import TitleH1 from '../Title/TitleH1';
 import { Container, Groups, GroupsContent } from './GruposStyle';
 
 const Grupos = () => {
+  const { slug } = useEdition();
   const [dados, setDados] = useState<TeamsResponse | undefined>();
   const carousel = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
 
   async function FetchGroups() {
-    const data = await loadTeams();
+    const data = await loadTeams(slug);
     setDados(data);
   }
 
   useEffect(() => {
     void FetchGroups();
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     const el = carousel.current;
@@ -66,7 +69,7 @@ const Grupos = () => {
       ) : null}
 
       <div className="button_div">
-        <Link to={'/Grupos'}>VER PONTOS DOS GRUPO</Link>
+        <Link to={buildEditionPath(slug, 'grupos')}>VER PONTOS DOS GRUPO</Link>
       </div>
     </Container>
   );

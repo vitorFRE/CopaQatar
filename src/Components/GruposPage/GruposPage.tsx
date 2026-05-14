@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { loadTeams } from '../../data/edition2022';
+import { useEdition } from '../../edition/EditionContext';
+import { loadTeams } from '../../data/editions';
 import type { TeamsResponse } from '../../types/worldcup';
 import { GetURL } from '../Helper/GetURL';
 import { Translate } from '../Helper/Translate';
@@ -7,16 +8,17 @@ import TitleH1 from '../Title/TitleH1';
 import { Container, Tabelas } from './GruposPageStyle';
 
 const GruposPage = () => {
+  const { slug } = useEdition();
   const [dados, setDados] = useState<TeamsResponse | undefined>();
 
   async function FetchGroups() {
-    const data = await loadTeams();
+    const data = await loadTeams(slug);
     setDados(data);
   }
 
   useEffect(() => {
     void FetchGroups();
-  }, []);
+  }, [slug]);
 
   return (
     <Container>

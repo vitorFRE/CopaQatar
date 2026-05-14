@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { loadMatchById } from '../../data/edition2022';
+import { useEdition } from '../../edition/EditionContext';
+import { loadMatchById } from '../../data/editions';
 import type { WorldCupMatch } from '../../types/worldcup';
 import {
   ConvertedDateDay,
@@ -14,19 +15,20 @@ import TitleH1 from '../Title/TitleH1';
 import { Eventos, MatchDetails, MatchInfosContainer } from './MatchInfosStyle';
 
 const MatchInfos = () => {
+  const { slug } = useEdition();
   const { id } = useParams<{ id: string }>();
 
   const [dados, setDados] = useState<WorldCupMatch | undefined>();
 
   async function FetchGroups() {
     if (!id) return;
-    const data = await loadMatchById(id);
+    const data = await loadMatchById(slug, id);
     setDados(data);
   }
 
   useEffect(() => {
     void FetchGroups();
-  }, [id]);
+  }, [id, slug]);
 
   const homeEvents = dados?.home_team_events ?? [];
   const awayEvents = dados?.away_team_events ?? [];

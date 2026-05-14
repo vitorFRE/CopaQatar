@@ -34,12 +34,12 @@ export const Tabelas = styled.div`
       }
       > td {
         padding-bottom: 10px;
-        border-bottom: 1px solid ${({ theme }) => theme.colors.RedQatar};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
       }
       > th:first-child {
         width: 200px;
         max-width: 100%;
-        color: ${({ theme }) => theme.colors.RedQatar};
+        color: ${({ theme }) => theme.colors.primary};
       }
       > th {
         padding-bottom: 15px;

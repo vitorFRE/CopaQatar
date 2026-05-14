@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loadMatches } from '../../data/edition2022';
+import { useEdition } from '../../edition/EditionContext';
+import { buildEditionPath } from '../../edition/editionConfig';
+import { loadMatches } from '../../data/editions';
 import type { WorldCupMatch } from '../../types/worldcup';
 import {
   ConvertedDateDay,
@@ -14,23 +16,24 @@ import TitleH1 from '../Title/TitleH1';
 import { Container } from './PartidasListaStyle';
 
 const PartidasLista = () => {
+  const { slug } = useEdition();
   const [dados, setDados] = useState<WorldCupMatch[] | undefined>();
 
   async function FetchGroups() {
-    const data = await loadMatches();
+    const data = await loadMatches(slug);
     setDados(data);
   }
 
   useEffect(() => {
     void FetchGroups();
-  }, []);
+  }, [slug]);
   return (
     <Container>
       <TitleH1 text={'Todas as Partidas'} />
       <div>
         {dados
           ? dados.map((par) => (
-              <Link key={par.id} to={`/partida/${par.id}`}>
+              <Link key={par.id} to={buildEditionPath(slug, `partida/${par.id}`)}>
                 <Match
                   Team1={Translate(par.home_team.name)}
                   Team2={Translate(par.away_team.name)}
